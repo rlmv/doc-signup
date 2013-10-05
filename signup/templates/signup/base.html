@@ -1,0 +1,31 @@
+<html>
+<head>
+
+{% block head %}
+<title>{% block title %}{% endblock %}</title>
+{% endblock head %}
+
+{% block stylesheets %}
+{% endblock %}
+
+</head>
+
+<body>
+
+<div id="page-header">
+{% block page_header %}
+{% endblock %}
+</div>
+
+<div id="page-content">
+{% block page_content %}
+{% endblock %}
+</div>
+
+<div id="page-footer">
+{% block page_footer %}
+{% endblock %}
+</div>
+
+</body>
+</html>

@@ -1,11 +1,7 @@
-<html>
 
-<head>
-<title> </title>
-</head>
+{% extends "signup/base.html" %}
 
-<body>
-
+{% block page_content %}
 
 {% if trip_list %}
 <ul>
@@ -17,5 +13,5 @@
 No trips in this timeframe. 
 {% endif %}
 
-</body>
-</html>
+{% endblock %}
+
