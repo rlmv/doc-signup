@@ -6,12 +6,12 @@
 {% if trip_list %}
 <ul>
 {% for trip in trip_list %}
-  <li><a href={% url 'trip_detail' trip.pk %}> {{ trip.name }} </a></li>
+  <li><a href={% url 'signup' trip.pk %}> {{ trip.name }} </a></li>
 {% endfor %}
 </ul>
 {% else %}
 No trips in this timeframe. 
 {% endif %}
-
+% %
 {% endblock %}
 
