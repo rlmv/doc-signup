@@ -32,6 +32,7 @@ def trip_detail(request, trip_id):
     trip = get_object_or_404(Trip, pk=trip_id)
     return HttpResponse("name: %s" % trip.name)
 
+
 def signup(request, trip_id):
 
     trip = get_object_or_404(Trip, pk=trip_id)

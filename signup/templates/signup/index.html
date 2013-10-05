@@ -1,14 +1,21 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<html> <head>
-<title>
-</title>
+<html>
+
+<head>
+<title> </title>
 </head>
 
 <body>
-<h1></h1>
 
 
-<hr>
-<address></address>
-<!-- hhmts start -->Last modified: Sat Oct  5 14:33:18 EDT 2013 <!-- hhmts end -->
-</body> </html>
+{% if trip_list %}
+<ul>
+{% for trip in trip_list %}
+  <li><a href={% url 'trip_detail' trip.pk %}> {{ trip.name }} </a></li>
+{% endfor %}
+</ul>
+{% else %}
+No trips in this timeframe. 
+{% endif %}
+
+</body>
+</html>
