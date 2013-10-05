@@ -47,7 +47,7 @@ def signup(request, trip_id):
             return HttpResponseRedirect(url)
         
     else:
-        form = SignupForm(None)
+        form = SignupForm()
 
     context = {
         'trip': trip,
