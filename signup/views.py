@@ -15,7 +15,10 @@ def SignupForm(ModelForm):
 
 
 class IndexView(generic.ListView):
-    """ Index of existing trips. """
+    """
+    Index of existing trips.
+    This should be filtered to only show upcoming trips.
+    """
     
     template_name = 'signup/index.html'
     context_object_name = 'trip_list'
@@ -28,7 +31,6 @@ def trip_detail(request, trip_id):
 
     trip = get_object_or_404(Trip, pk=trip_id)
     return HttpResponse("name: %s" % trip.name)
-
 
 def signup(request, trip_id):
 
