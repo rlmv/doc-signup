@@ -13,12 +13,18 @@ class Trip(models.Model):
     
     leaders = models.ManyToManyField(User)
 
+    def __unicode__(self):
+        return self.name
+
 class Trippee(models.Model):
     """ eventually change this to a User for authentication. """
     name = models.CharField(max_length=400)
     email = models.EmailField()
     dash = models.CharField(max_length=20)
-    dietary_restrictions = models.CharField(max_length=400)
+    dietary_restrictions = models.CharField(max_length=400, blank=True)
     
     trip = models.ForeignKey(Trip)
+
+    def __unicode__(self):
+        return self.name
     
