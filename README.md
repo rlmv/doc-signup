@@ -1,11 +1,6 @@
 
 
-An online trip signup app for the DOC.
-
-Model framework (ideal):
-     
-      Trip : Leaders  ---> User
-           : Signups  ---> Signup (----> User)
+An online trip signup app for CnT.
 
 run this ish!
 ------------
