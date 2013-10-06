@@ -1,17 +1,19 @@
-
 {% extends "signup/base.html" %}
 
-{% block page_content %}
+{% block content_container %}
 
-{% if trip_list %}
-<ul>
-{% for trip in trip_list %}
-  <li><a href={% url 'signup' trip.pk %}> {{ trip.name }} </a></li>
-{% endfor %}
-</ul>
-{% else %}
-No trips in this timeframe. 
-{% endif %}
+<div id="upcoming-trips">
+  <h2>Upcoming Trips</h2>
+
+  {% if trip_list %}
+  <ul id="trip-list">
+    {% for trip in trip_list %}
+    <li><a href={% url 'signup' trip.pk %}> {{ trip.name }} </a></li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  No trips in this timeframe.
+  {% endif %}
+</div>
 
 {% endblock %}
-

@@ -6,24 +6,32 @@
 {% endblock head %}
 
 {% block stylesheets %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "signup/signup.css" %}" media="all">
 {% endblock %}
 
 </head>
 
 <body>
 
-<div id="page-header">
-{% block page_header %}
+<div id="header-container">
+{% block header-container %}
+<header>
+  <h1>Cabin and Trail Trip Signup</h1>
+</header>
 {% endblock %}
 </div>
 
-<div id="page-content">
-{% block page_content %}
+<div id="content-container">
+{% block content_container %}
+<div id="upcoming-trips">
+  <h2>Upcoming Trips</h2>
+</div>
 {% endblock %}
 </div>
 
-<div id="page-footer">
-{% block page_footer %}
+<div id="footer-container">
+{% block footer-container %}
 {% endblock %}
 </div>
 

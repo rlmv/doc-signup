@@ -1,12 +1,13 @@
-
 {% extends "signup/base.html" %}
 
-{% block page_content %}
+{% block content_container %}
 
-<form action={% url 'signup' trip.pk %} method="post">
-{% csrf_token %}
-{{ signup_form.as_p }}
-<input type="submit" value="Submit"/>
-</form>
+<div id="signup-form">
+  <form action={% url 'signup' trip.pk %} method="post">
+    {% csrf_token %}
+    {{ signup_form.as_p }}
+    <input type="submit" value="Submit"/>
+  </form>
+</div>
 
 {% endblock %}
