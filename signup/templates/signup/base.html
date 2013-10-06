@@ -1,39 +1,34 @@
 <html>
 <head>
-
-{% block head %}
-<title>{% block title %}{% endblock %}</title>
-{% endblock head %}
-
-{% block stylesheets %}
-{% load staticfiles %}
-<link rel="stylesheet" href="{% static "signup/signup.css" %}" media="all">
-{% endblock %}
-
+  {% block head %}
+  <title>{% block title %}{% endblock %}</title>
+  {% endblock head %}
+  
+  {% block stylesheets %}
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static "signup/signup.css" %}" media="all">
+  {% endblock %}
 </head>
 
 <body>
+  <div id="header-container">
+    {% block header-container %}
+    <header>
+      <h1>Cabin and Trail Trip Signup</h1>
+    </header>
+    {% endblock %}
+  </div>
 
-<div id="header-container">
-{% block header-container %}
-<header>
-  <h1>Cabin and Trail Trip Signup</h1>
-</header>
-{% endblock %}
-</div>
+  <div id="content-container">
+    {% block content_container %}
+    
+    {% endblock %}
+  </div>
 
-<div id="content-container">
-{% block content_container %}
-<div id="upcoming-trips">
-  <h2>Upcoming Trips</h2>
-</div>
-{% endblock %}
-</div>
-
-<div id="footer-container">
-{% block footer-container %}
-{% endblock %}
-</div>
-
+  <div id="footer-container">
+    {% block footer-container %}
+    {% endblock %}
+  </div>
 </body>
+
 </html>

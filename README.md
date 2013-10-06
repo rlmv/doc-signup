@@ -8,7 +8,7 @@ You need: Python 2.7, Django 1.5
 
     git clone https://github.com/rlmv/doc-signup.git
     cd doc-signup
-    python mange.py syncdb
+    python manage.py syncdb
 
 Make a superuser account when prompted. Then, run the dev server:
      
