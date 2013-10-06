@@ -8,7 +8,7 @@
   {% if trip_list %}
   <ul id="trip-list">
     {% for trip in trip_list %}
-    <li><a href={% url 'signup' trip.pk %}> {{ trip.name }} </a></li>
+    <li><a href={% url 'signup' trip.pk %}> {{ trip.name }}: {{ trip.start_time|date:"l N jS" }} </a></li>
     {% endfor %}
   </ul>
   {% else %}

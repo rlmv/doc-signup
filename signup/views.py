@@ -10,7 +10,7 @@ from signup.models import Trip, Signup
 class SignupForm(ModelForm):
     """ Use to signup for a trip. """
     class Meta:
-	model = Signup
+        model = Signup
 	fields = ['name', 'email', 'dash', 'dietary_restrictions']
 
 class IndexView(generic.ListView):
@@ -24,12 +24,6 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
 	return Trip.objects.all().order_by('-start_time')
-
-
-def trip_detail(request, trip_id):
-
-    trip = get_object_or_404(Trip, pk=trip_id)
-    return HttpResponse("name: %s" % trip.name)
 
 
 def signup(request, trip_id):
