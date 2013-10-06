@@ -34,9 +34,9 @@ def signup(request, trip_id):
 	form = SignupForm(request.POST)
 
 	if form.is_valid():
-	    t = form.save(commit=False)
-	    t.trip = trip
-	    t.save()
+	    s = form.save(commit=False)
+	    s.trip = trip
+	    s.save()
 	    url = reverse('success', kwargs={'trip_id': trip_id})
 	    return HttpResponseRedirect(url)
 
