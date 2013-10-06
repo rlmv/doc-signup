@@ -25,6 +25,7 @@ class IndexView(generic.ListView):
     
     def get_queryset(self):
         return Trip.objects.all().order_by('-start_time')
+
     
 def trip_detail(request, trip_id):
 
@@ -57,7 +58,7 @@ def signup(request, trip_id):
 
     
 def success(request, trip_id):
-    """ Landing page for a successful signup. """
+    """ Landing page after successful signup. """
     
     trip = get_object_or_404(Trip, pk=trip_id)
     context = {

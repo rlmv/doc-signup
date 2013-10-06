@@ -18,7 +18,10 @@ class Trip(models.Model):
         return self.name
 
 class Trippee(models.Model):
-    """ eventually change this to a User for authentication. """
+    """ eventually change this to a User for authentication. 
+        / perhaps have a Signup in-between model? - then we don't
+        have to specialize the UserProfile too much. """
+    
     name = models.CharField(max_length=400)
     email = models.EmailField()
     dash = models.CharField(max_length=20)
