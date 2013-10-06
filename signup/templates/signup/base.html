@@ -11,23 +11,30 @@
 </head>
 
 <body>
-  <div id="header-container">
-    {% block header-container %}
-    <header>
-      <h1>Cabin and Trail Trip Signup</h1>
-    </header>
-    {% endblock %}
-  </div>
+  <div id="body-wrapper">
 
-  <div id="content-container">
-    {% block content_container %}
-    
-    {% endblock %}
-  </div>
+    <div id="header-container">
+      {% block header-container %}
+      <header>
+	<h1>Cabin and Trail Trip Signup</h1>
+	<h2>Get outside!</h2>
+	
+      </header>
+      {% endblock %}
+    </div>
 
-  <div id="footer-container">
-    {% block footer-container %}
-    {% endblock %}
+    <div id="content-container">
+      <div id="main-content">
+	{% block content_container %}
+	{% endblock %}
+      <div>
+    </div>
+
+    <div id="footer-container">
+      {% block footer-container %}
+      {% endblock %}
+    </div>
+
   </div>
 </body>
 
