@@ -3,7 +3,16 @@ from django.contrib.auth.models import User
 
 
 class Trip(models.Model):
+    """ Represents a trip in the database.
 
+    Other potential fields:
+      * max # of trippees <-- this is an important one,
+        but we need to implement a mechanism for rejecting
+        people / creating a waitlist.
+      * difficulty / length
+      * links (to maps, pictures, etc.)
+    """
+    
     name = models.CharField(max_length=100)
     blurb = models.TextField()
     cost_doc = models.PositiveIntegerField()
@@ -17,10 +26,12 @@ class Trip(models.Model):
     def __unicode__(self):
         return self.name
 
-class Trippee(models.Model):
-    """ eventually change this to a User for authentication. 
-        / perhaps have a Signup in-between model? - then we don't
-        have to specialize the UserProfile too much. """
+class Signup(models.Model):
+    """ Represents one trippee's registration for a trip.
+    
+    TODO: eventually link this to a User for authentication,
+    i.e., add a ForeignKey(User) field.
+    """
     
     name = models.CharField(max_length=400)
     email = models.EmailField()

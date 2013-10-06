@@ -5,13 +5,13 @@ from django.forms import ModelForm
 from django.views import generic
 from django.core.urlresolvers import reverse
 
-from signup.models import Trip, Trippee
+from signup.models import Trip, Signup
 
 
 class SignupForm(ModelForm):
     """ Use to signup for a trip. """
     class Meta:
-        model = Trippee
+        model = Signup
         fields = ['name', 'email', 'dash', 'dietary_restrictions']
 
 class IndexView(generic.ListView):
