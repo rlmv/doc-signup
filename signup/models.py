@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 
 class Trip(models.Model):
     """ Represents a trip in the database.
@@ -41,3 +42,16 @@ class Signup(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class UserProfile(models.Model):
+    """ Proxy model to extend the User class. """
+    user = models.OneToOneField(User, unique=True)
+    netid = models.CharField(max_length=40)
+    name = models.CharField(max_length=200) # display name
+
+
+""" Link UserProfiles with User models. """
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        profile, created = UserProfile.objects.get_or_create(user=instance)
+post_save.connect(create_profile, sender=User)
