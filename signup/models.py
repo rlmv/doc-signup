@@ -32,23 +32,20 @@ class Signup(models.Model):
     TODO: eventually link this to a User for authentication,
     i.e., add a ForeignKey(User) field.
     """
-    
-    name = models.CharField(max_length=400)
-    email = models.EmailField()
-    dash = models.CharField(max_length=20)
+
+    trip = models.ForeignKey(Trip)    
+    trippee = models.ForeignKey(User)
+    dash = models.CharField(max_length=20) # can't just use netid
     dietary_restrictions = models.CharField(max_length=400, blank=True)
-    
-    trip = models.ForeignKey(Trip)
 
     def __unicode__(self):
-        return self.name
+        return "%s is registered for %s trip." % (self.trippee, self.trip)
 
 class UserProfile(models.Model):
     """ Model to extend the User class."""
     user = models.OneToOneField(User, unique=True)
     netid = models.CharField(max_length=40)
     is_leader = models.BooleanField()
-    
 
 # Link UserProfile to User objects
 def create_profile(sender, instance, created, **kwargs):

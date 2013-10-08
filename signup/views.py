@@ -16,7 +16,7 @@ class SignupForm(ModelForm):
     """ Use to signup for a trip. """
     class Meta:
         model = Signup
-	fields = ['name', 'email', 'dash', 'dietary_restrictions']
+	fields = [ 'dash', 'dietary_restrictions']
 
 
 class IndexView(generic.ListView):
@@ -31,6 +31,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
 	return Trip.objects.all().order_by('-start_time')
 
+# expose view
 index = login_required(IndexView.as_view())
 
 
@@ -44,6 +45,7 @@ def signup(request, trip_id):
 	if form.is_valid():
 	    s = form.save(commit=False)
 	    s.trip = trip
+            s.trippee = request.user 
 	    s.save()
 	    url = reverse('success', kwargs={'trip_id': trip_id})
 	    return HttpResponseRedirect(url)
