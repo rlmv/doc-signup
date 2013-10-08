@@ -29,7 +29,6 @@ class IndexView(generic.ListView):
     context_object_name = 'trip_list'
 
     def get_queryset(self):
-        logger.debug("TEST 2")
 	return Trip.objects.all().order_by('-start_time')
 
 index = login_required(IndexView.as_view())

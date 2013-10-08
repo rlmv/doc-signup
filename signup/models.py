@@ -44,13 +44,11 @@ class Signup(models.Model):
         return self.name
 
 class UserProfile(models.Model):
-    """ Proxy model to extend the User class. """
+    """ Model to extend the User class."""
     user = models.OneToOneField(User, unique=True)
     netid = models.CharField(max_length=40)
-    name = models.CharField(max_length=200) # display name
 
-
-""" Link UserProfiles with User models. """
+# Link UserProfile to User objects
 def create_profile(sender, instance, created, **kwargs):
     if created:
         profile, created = UserProfile.objects.get_or_create(user=instance)
