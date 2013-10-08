@@ -97,9 +97,22 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+
+    # enable Dartmouth SSO
+    'cas.middleware.CASMiddleware', 
+
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', 
+    'cas.backends.CASBackend',
+)
+
+CAS_SERVER_URL = 'https://login.dartmouth.edu/cas/'
+
+LOGIN_REDIRECT_URL = '/signup/'
 
 ROOT_URLCONF = 'mysite.urls'
 

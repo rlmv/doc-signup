@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.forms import ModelForm
 from django.views import generic
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
 
 from signup.models import Trip, Signup
 
@@ -12,6 +13,7 @@ class SignupForm(ModelForm):
     class Meta:
         model = Signup
 	fields = ['name', 'email', 'dash', 'dietary_restrictions']
+
 
 class IndexView(generic.ListView):
     """
@@ -24,6 +26,8 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
 	return Trip.objects.all().order_by('-start_time')
+
+index = login_required(IndexView.as_view())
 
 
 def signup(request, trip_id):
