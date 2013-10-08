@@ -112,6 +112,10 @@ AUTHENTICATION_BACKENDS = (
 
 CAS_SERVER_URL = 'https://login.dartmouth.edu/cas/'
 
+CAS_RESPONSE_CALLBACKS = (
+    'cas_callback.dart_callback', 
+)
+
 LOGIN_REDIRECT_URL = '/signup/'
 
 ROOT_URLCONF = 'mysite.urls'
@@ -145,24 +149,35 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 # more details on how to customize your logging configuration.
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-	'require_debug_false': {
-	    '()': 'django.utils.log.RequireDebugFalse'
-	}
+    'disable_existing_loggers': True,
+    'formatters': {
+        'simple': {
+            'format': '%(levelname)s %(name)s %(message)s',
+        },
     },
     'handlers': {
-	'mail_admins': {
-	    'level': 'ERROR',
-	    'filters': ['require_debug_false'],
-	    'class': 'django.utils.log.AdminEmailHandler'
-	}
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+            'level': 'DEBUG',
+        },
     },
     'loggers': {
-	'django.request': {
-	    'handlers': ['mail_admins'],
-	    'level': 'ERROR',
-	    'propagate': True,
+        'mysite': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
 	},
-    }
+        'signup': {
+            'handlers': ['console'],
+            'level': 'DEBUG', 
+        },
+        'cas_callback': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+        'cas': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
 }

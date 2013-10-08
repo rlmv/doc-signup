@@ -1,3 +1,6 @@
+
+import logging
+
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.forms import ModelForm
@@ -7,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 from signup.models import Trip, Signup
 
+logger = logging.getLogger(__name__)
 
 class SignupForm(ModelForm):
     """ Use to signup for a trip. """
@@ -25,6 +29,7 @@ class IndexView(generic.ListView):
     context_object_name = 'trip_list'
 
     def get_queryset(self):
+        logger.debug("TEST 2")
 	return Trip.objects.all().order_by('-start_time')
 
 index = login_required(IndexView.as_view())
