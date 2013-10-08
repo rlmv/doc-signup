@@ -47,6 +47,8 @@ class UserProfile(models.Model):
     """ Model to extend the User class."""
     user = models.OneToOneField(User, unique=True)
     netid = models.CharField(max_length=40)
+    is_leader = models.BooleanField()
+    
 
 # Link UserProfile to User objects
 def create_profile(sender, instance, created, **kwargs):
