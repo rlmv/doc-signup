@@ -34,7 +34,7 @@ class IndexView(generic.ListView):
 # expose view
 index = login_required(IndexView.as_view())
 
-
+@login_required
 def signup(request, trip_id):
     """ Page for user signup. """
     trip = get_object_or_404(Trip, pk=trip_id)
@@ -59,7 +59,7 @@ def signup(request, trip_id):
     }
     return render(request, 'signup/signup.html', context)
 
-
+@login_required
 def success(request, trip_id):
     """ Landing page after successful signup. """
 
