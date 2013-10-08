@@ -16,14 +16,19 @@ Get our codebase:
 
     git clone https://github.com/rlmv/doc-signup.git
     cd doc-signup
-    python manage.py syncdb
+    python manage.py syncdb --noinput
 
-Make a superuser account when prompted. Then, run the dev server:
-     
-     python manage.py runserver
+And run the dev server:
 
-Yay! Check out localhost:8000/signup and localhost:8000/admin.
-     
+    python manage.py runserver
+
+Yay! Check out localhost:8000/signup.
+
+If you want to access the admin site at localhost:8000/admin, you need to log in to the site with SSO so that your information is in the database, and then run 
+   
+   python manage.py superuser <Your Full Name>
+
+Woohoo!     
 
 todo:
 ----
