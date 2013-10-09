@@ -24,17 +24,17 @@ And run the dev server:
 
 Yay! Check out localhost:8000/signup.
 
-If you want to access the admin site at localhost:8000/admin, you need to log in to the site with SSO so that your information is in the database, and then run 
+If you want to access the admin site (currently the only way to add trips) at localhost:8000/admin, you first need to visit /signup and login in via WebAuth (so that your information is in the database) and run 
     
     python manage.py superuser <Your Full Name>
 
-Woohoo!     
+This will give you superuser rights. 
+
 
 todo:
 ----
+* allow leaders to submit trips
 * email notifications to leaders
 * styling
-* allow leader login - integrate with User framework
-* allow trippee login 
 * produce 'This week' blitz from upcoming trips
 
