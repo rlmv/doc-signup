@@ -38,7 +38,3 @@ todo:
 * allow trippee login 
 * produce 'This week' blitz from upcoming trips
 
-
-info:
-----
-CAS process walkthrough: https://wiki.jasig.org/display/CAS/Proxy+CAS+Walkthrough

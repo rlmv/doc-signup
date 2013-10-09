@@ -12,6 +12,7 @@ from signup.models import Trip, Signup
 
 logger = logging.getLogger(__name__)
 
+
 class SignupForm(ModelForm):
     """ Use to signup for a trip. """
     class Meta:
@@ -33,6 +34,7 @@ class IndexView(generic.ListView):
 
 # expose view
 index = login_required(IndexView.as_view())
+
 
 @login_required
 def signup(request, trip_id):
@@ -58,6 +60,7 @@ def signup(request, trip_id):
 	'signup_form': form,
     }
     return render(request, 'signup/signup.html', context)
+
 
 @login_required
 def success(request, trip_id):

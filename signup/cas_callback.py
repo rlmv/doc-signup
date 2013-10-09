@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 logger = logging.getLogger(__name__)
 
+
 def dart_callback(tree):
     """ Callback function for parsing Dartmouth's CAS response.
     

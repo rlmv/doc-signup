@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
+
 class Trip(models.Model):
     """ Represents a trip in the database.
 
@@ -26,6 +27,7 @@ class Trip(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class Signup(models.Model):
     """ Represents one trippee's registration for a trip.
     
@@ -40,6 +42,7 @@ class Signup(models.Model):
 
     def __unicode__(self):
         return "%s is registered for %s trip." % (self.trippee, self.trip)
+
 
 class UserProfile(models.Model):
     """ Model to extend the User class."""

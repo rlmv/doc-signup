@@ -113,7 +113,7 @@ AUTHENTICATION_BACKENDS = (
 CAS_SERVER_URL = 'https://login.dartmouth.edu/cas/'
 
 CAS_RESPONSE_CALLBACKS = (
-    'mysite.cas_callback.dart_callback', 
+    'signup.cas_callback.dart_callback', 
 )
 
 LOGIN_REDIRECT_URL = '/signup/'
