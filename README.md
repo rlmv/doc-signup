@@ -1,6 +1,5 @@
 
-
-An online trip signup app for CnT.
+A trip signup app for CnT.
 
 run this ish!
 ------------
