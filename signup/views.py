@@ -33,7 +33,8 @@ class IndexView(generic.ListView):
 	return Trip.objects.all().order_by('-start_time')
 
 # expose view
-index = login_required(IndexView.as_view())
+#index = login_required(IndexView.as_view())
+index = IndexView.as_view()
 
 
 @login_required

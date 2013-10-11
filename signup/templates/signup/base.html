@@ -18,6 +18,12 @@
       <header>
 	<h1>Cabin and Trail Trip Signup</h1>
 	<h2>Get outside!</h2>
+
+	{% if user.is_authenticated  %}
+	{{ user.username }}
+	{% else %}
+	<a href="{% url 'login' %}?next={% firstof request.path %}"> Login </a>
+	{% endif %}
 	
       </header>
       {% endblock %}
