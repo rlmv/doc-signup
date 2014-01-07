@@ -32,15 +32,19 @@ def dart_callback(tree):
     # not the user_str, so we substitute this in.
     tree[0][0].text = username
 
+    logger.info("creating user %s" % username)
     user, created = User.objects.get_or_create(username=username, 
                                                email=email)
     if created:
         ## TODO: hacky - hack - the CAS package only allows admin 
         ## login for staff, fix it.
         user.is_staff = True
+        # TODO: this gives all users admin priveleges, change this
+        user.is_superuser = True; 
+        
         profile = user.userprofile
         profile.netid = netid
-        profile.name = username
+        # profile.name = username
         
         profile.save()
         user.save()
