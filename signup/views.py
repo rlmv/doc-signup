@@ -50,6 +50,8 @@ def signup(request, trip_id):
 	    s.trip = trip
             s.trippee = request.user 
 	    s.save()
+            logger.info('%s signed up for trip %s' %
+                        (request.user.username, trip.name))
 	    url = reverse('success', kwargs={'trip_id': trip_id})
 	    return HttpResponseRedirect(url)
 
