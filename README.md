@@ -32,8 +32,13 @@ This will give you superuser rights.
 
 todo:
 ----
-* allow leaders to submit trips
+* let users see current trips
+* let users cancel trips
+* let leaders submit trips - (with approval?)
+* let leaders see trippee list
+* let leaders message/notify trippees (or export email list?)
 * email notifications to leaders
+* automatic reminders for upcoming trips?
 * styling
 * produce 'This week' blitz from upcoming trips
 

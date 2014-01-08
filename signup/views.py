@@ -44,7 +44,7 @@ def signup(request, trip_id):
 
     if request.method == 'POST':
 	form = SignupForm(request.POST)
-
+        
 	if form.is_valid():
 	    s = form.save(commit=False)
 	    s.trip = trip
