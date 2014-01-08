@@ -29,11 +29,7 @@ class Trip(models.Model):
 
 
 class Signup(models.Model):
-    """ Represents one trippee's registration for a trip.
-    
-    TODO: eventually link this to a User for authentication,
-    i.e., add a ForeignKey(User) field.
-    """
+    """ Represents one trippee's registration for a trip. """
 
     trip = models.ForeignKey(Trip)    
     trippee = models.ForeignKey(User)
